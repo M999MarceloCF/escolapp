@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscolApp - Sistema de Gestão Escolar para Dispositivos Móveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        header {
+            background-color: #1976D2;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px 5px 0 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #1976D2;
+            border-bottom: 2px solid #FFC107;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #0D47A1;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #fff;
+            margin-top: 10px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border-left: 4px solid #1976D2;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #1976D2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #1565C0;
+        }
+        .button-secondary {
+            background-color: #FFC107;
+            color: #333;
+        }
+        .button-secondary:hover {
+            background-color: #FFA000;
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        .grid-item {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            height: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card-title {
+            color: #1976D2;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        .card-content {
+            color: #666;
+        }
+        .highlight {
+            background-color: #FFF8E1;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #FFC107;
+        }
+        .mobile-frame {
+            display: inline-block;
+            border: 16px solid #333;
+            border-radius: 36px;
+            padding: 5px;
+            margin: 20px 0;
+            background-color: #333;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        .mobile-screen {
+            width: 300px;
+            height: 550px;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .screen-header {
+            background-color: #1976D2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .screen-body {
+            padding: 15px;
+        }
+        .menu-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .documentation-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .documentation-list li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .documentation-list li:hover {
+            background-color: #e3f2fd;
+        }
+        .documentation-list a {
+            color: #1976D2;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
+        .documentation-list a:hover {
+            text-decoration: underline;
+        }
+        .documentation-list p {
+            margin: 5px 0 0 0;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .grid-item {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EscolApp</h1>
+            <div class="subtitle">Sistema Simplificado de Gestão Escolar para Dispositivos Móveis</div>
+        </header>
+
+        <main>
+            <div class="section">
+                <h2>Sobre o Projeto</h2>
+                <p>O EscolApp é um sistema simplificado de gestão escolar para dispositivos móveis, desenvolvido para atender às necessidades da Escola Municipal Professor Paulo Freire. O projeto foi concebido com foco em simplicidade, leveza e funcionamento offline, considerando as limitações de recursos de uma escola pública.</p>
+                
+                <p>O sistema permite o registro de notas e frequência, comunicação entre escola e famílias, e acesso ao calendário escolar, mesmo em dispositivos mais antigos e com conexão de internet limitada.</p>
+                
+                <div class="highlight">
+                    <h3>Principais Características</h3>
+                    <ul>
+                        <li><strong>Simplicidade:</strong> Interface intuitiva e fácil de usar</li>
+                        <li><strong>Leveza:</strong> Funciona em dispositivos com recursos limitados</li>
+                        <li><strong>Funcionamento Offline:</strong> Acesso às principais funcionalidades sem internet</li>
+                        <li><strong>Sincronização:</strong> Atualização de dados quando há conexão disponível</li>
+                        <li><strong>Multiplataforma:</strong> Desenvolvido em Python com Kivy/KivyMD</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Funcionalidades Principais</h2>
+            
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="card">
+                        <h3 class="card-title">Registro de Notas e Frequência</h3>
+                        <div class="card-content">
+                            <p>Permite aos professores registrar notas e frequência dos alunos, com funcionamento offline e sincronização posterior.</p>
+                            <p>Os responsáveis e alunos podem consultar o histórico de notas e frequência a qualquer momento.</p>
+                            <a href="docs/telas_aplicativo.html#registro-notas" class="button">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <div class="card">
+                        <h3 class="card-title">Comunicados</h3>
+                        <div class="card-content">
+                            <p>Facilita a comunicação entre escola e famílias, permitindo o envio de comunicados gerais, por turma ou individuais.</p>
+                            <p>Notificações para novos comunicados e confirmação de leitura.</p>
+                            <a href="docs/telas_aplicativo.html#comunicados" class="button">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <div class="card">
+                        <h3 class="card-title">Calendário Escolar</h3>
+                        <div class="card-content">
+                            <p>Apresenta eventos, feriados, datas de provas e reuniões em um calendário interativo.</p>
+                            <p>Permite filtrar eventos por tipo e receber lembretes.</p>
+                            <a href="docs/documentacao/prototipos_interface.html" class="button">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <div class="card">
+                        <h3 class="card-title">Perfis de Acesso</h3>
+                        <div class="card-content">
+                            <p>Diferentes níveis de acesso para administradores, professores, alunos e responsáveis.</p>
+                            <p>Interface adaptada às necessidades e permissões de cada perfil.</p>
+                            <a href="docs/telas_aplicativo.html#menu-principal" class="button">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>Telas do Aplicativo</h2>
+            
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="mobile-frame">
+                        <div class="mobile-screen">
+                            <div class="screen-header">
+                                EscolApp
+                            </div>
+                            <div class="screen-body">
+                                <div style="text-align: center; margin: 30px 0;">
+                                    <div style="font-size: 24px; font-weight: bold; color: #1976D2;">EscolApp</div>
+                                    <div style="font-size: 14px; color: #666; margin-top: 5px;">Sistema de Gestão Escolar</div>
+                                </div>
+                                
+                                <div style="margin: 40px 0;">
+                                    <div style="border: 1px solid #ddd; padding: 10px; margin: 10px 0; width: 90%; border-radius: 4px;">Usuário</div>
+                                    <div style="border: 1px solid #ddd; padding: 10px; margin: 10px 0; width: 90%; border-radius: 4px;">Senha</div>
+                                    
+                                    <div style="text-align: right; margin: 5px 0;">
+                                        <a href="#" style="color: #1976D2; font-size: 14px; text-decoration: none;">Esqueci minha senha</a>
+                                    </div>
+                                    
+                                    <div style="margin: 30px 0; text-align: center;">
+                                        <div style="background-color: #1976D2; color: white; padding: 10px 15px; border-radius: 4px; width: 80%; display: inline-block;">Entrar</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="text-align: center; font-size: 12px; color: #666; margin-top: 50px;">
+                                    Escola Municipal Professor Paulo Freire<br>
+                                    Versão 1.0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <h3>Telas Implementadas</h3>
+                    <p>O protótipo do EscolApp inclui as seguintes telas principais:</p>
+                    <ul>
+                        <li><strong>Login:</strong> Autenticação de usuários com diferentes perfis</li>
+                        <li><strong>Menu Principal:</strong> Hub central com acesso a todas as funcionalidades</li>
+                        <li><strong>Registro de Notas:</strong> Interface para professores registrarem notas dos alunos</li>
+                        <li><strong>Registro de Frequência:</strong> Controle de presença dos alunos</li>
+                        <li><strong>Comunicados:</strong> Sistema de mensagens entre escola e famílias</li>
+                        <li><strong>Calendário Escolar:</strong> Visualização de eventos e datas importantes</li>
+                        <li><strong>Ocorrências:</strong> Registro de ocorrências disciplinares</li>
+                    </ul>
+                    
+                    <p>Todas as telas foram projetadas seguindo princípios de design centrado no usuário, com foco em simplicidade, usabilidade e acessibilidade.</p>
+                    
+                    <a href="docs/telas_aplicativo.html" class="button">Ver Todas as Telas</a>
+                </div>
+            </div>
+            
+            <h2>Documentação Completa</h2>
+            
+            <p>O projeto EscolApp foi desenvolvido seguindo metodologias de engenharia de software, com documentação completa de todas as etapas do processo.</p>
+            
+            <ul class="documentation-list">
+                <li>
+                    <a href="docs/documentacao/regras_negocio.html">Regras de Negócio</a>
+                    <p>Definição das regras e políticas que governam o funcionamento do sistema.</p>
+                </li>
+                <li>
+                    <a href="docs/documentacao/casos_uso.html">Casos de Uso</a>
+                    <p>Descrição detalhada das interações entre usuários e o sistema.</p>
+                </li>
+                <li>
+                    <a href="docs/documentacao/analise_viabilidade.html">Análise de Viabilidade</a>
+                    <p>Estudo da viabilidade técnica, econômica e operacional do projeto.</p>
+                </li>
+                <li>
+                    <a href="docs/documentacao/planejamento_projeto.html">Planejamento do Projeto</a>
+                    <p>Cronograma, estimativas e plano de gerenciamento do projeto.</p>
+                </li>
+                <li>
+                    <a href="docs/documentacao/modelagem_dados.html">Modelagem de Dados</a>
+                    <p>Estrutura do banco de dados e relacionamentos entre entidades.</p>
+                </li>
+                <li>
+                    <a href="docs/documentacao/prototipos_interface.html">Protótipos de Interface</a>
+                    <p>Desenhos e especificações das interfaces do usuário.</p>
+                </li>
+                <li>
+                    <a href="docs/relatorio_final.html">Relatório Final</a>
+                    <p>Documentação completa do projeto, incluindo resultados e conclusões.</p>
+                </li>
+            </ul>
+            
+            <div class="section">
+                <h2>Tecnologias Utilizadas</h2>
+                
+                <div class="grid">
+                    <div class="grid-item">
+                        <div class="card">
+                            <h3 class="card-title">Python</h3>
+                            <div class="card-content">
+                                <p>Linguagem de programação principal, escolhida por sua simplicidade, legibilidade e ampla comunidade de suporte.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="card">
+                            <h3 class="card-title">Kivy/KivyMD</h3>
+                            <div class="card-content">
+                                <p>Framework para desenvolvimento de aplicações móveis multiplataforma com Python, oferecendo componentes de interface modernos e responsivos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="card">
+                            <h3 class="card-title">SQLite</h3>
+                            <div class="card-content">
+                                <p>Banco de dados leve e embutido, ideal para aplicações móveis com funcionamento offline.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="card">
+                            <h3 class="card-title">MVC</h3>
+                            <div class="card-content">
+                                <p>Padrão arquitetural Model-View-Controller para organização do código e separação de responsabilidades.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h2>Conclusão</h2>
+                <p>O EscolApp representa uma solução simples e eficaz para os desafios de gestão escolar em instituições públicas com recursos limitados. Seu design centrado no usuário, funcionamento offline e baixos requisitos de hardware o tornam acessível mesmo em contextos com infraestrutura tecnológica reduzida.</p>
+                
+                <p>O projeto demonstra como a tecnologia pode ser adaptada para atender necessidades específicas, contribuindo para a melhoria da comunicação entre escola e famílias e para a otimização dos processos administrativos e pedagógicos.</p>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="docs/relatorio_final.html" class="button">Ver Relatório Final</a>
+                    <a href="docs/telas_aplicativo.html" class="button button-secondary">Explorar Telas do Aplicativo</a>
+                </div>
+            </div>
+        </main>
+
+        <div class="footer">
+            <p>EscolApp - Sistema Simplificado de Gestão Escolar para Dispositivos Móveis</p>
+            <p>Projeto Multidisciplinar Final - Análise e Desenvolvimento de Sistemas</p>
+            <p>&copy; 2023 - Todos os direitos reservados</p>
+        </div>
+    </div>
+</body>
+</html>
