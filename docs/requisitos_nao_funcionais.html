@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos Não Funcionais - EscolApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --secondary-color: #FFC107;
+            --dark-color: #0D47A1;
+            --light-color: #BBDEFB;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #fff;
+            --section-padding: 60px 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .content {
+            padding: 120px 0 60px;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-title h1 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .page-title p {
+            color: var(--light-text);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .doc-content {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .doc-content h2 {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .doc-content h3 {
+            color: var(--dark-color);
+            font-size: 22px;
+            margin: 30px 0 15px;
+        }
+        
+        .doc-content p {
+            margin-bottom: 15px;
+        }
+        
+        .doc-content ul, .doc-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .doc-content li {
+            margin-bottom: 10px;
+        }
+        
+        .doc-content code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .doc-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .doc-content th, .doc-content td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .doc-content th {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .doc-content tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            color: var(--light-color);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .doc-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Escol<span>App</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../index.html#features">Funcionalidades</a></li>
+                    <li><a href="../index.html#about">Sobre</a></li>
+                    <li><a href="../index.html#documentation">Documentação</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container">
+            <div class="page-title">
+                <h1>Requisitos Não Funcionais</h1>
+                <p>Detalhamento dos requisitos não funcionais do sistema EscolApp</p>
+            </div>
+            
+            <div class="doc-content">
+                <h2>Requisitos Não Funcionais - EscolApp</h2>
+                
+                <p>Este documento apresenta os requisitos não funcionais do sistema EscolApp, um aplicativo mobile simplificado para gestão escolar, desenvolvido para a Escola Municipal Professor Paulo Freire.</p>
+                
+                <h3>RNF01 - Usabilidade</h3>
+                <p><strong>Descrição:</strong> O sistema deve ser intuitivo e de fácil uso, mesmo para usuários com pouca experiência tecnológica.</p>
+                <ul>
+                    <li><strong>RNF01.1:</strong> A interface deve ser simples e intuitiva, com elementos visuais claros e consistentes.</li>
+                    <li><strong>RNF01.2:</strong> O sistema deve exigir no máximo 3 cliques para acessar qualquer funcionalidade.</li>
+                    <li><strong>RNF01.3:</strong> O sistema deve fornecer feedback visual para todas as ações do usuário.</li>
+                    <li><strong>RNF01.4:</strong> O sistema deve incluir ajuda contextual para as principais funcionalidades.</li>
+                    <li><strong>RNF01.5:</strong> O sistema deve ser utilizável por pessoas com diferentes níveis de familiaridade com tecnologia.</li>
+                </ul>
+                
+                <h3>RNF02 - Desempenho</h3>
+                <p><strong>Descrição:</strong> O sistema deve apresentar tempo de resposta adequado, mesmo em dispositivos com configurações modestas.</p>
+                <ul>
+                    <li><strong>RNF02.1:</strong> O tempo de resposta para operações básicas deve ser inferior a 3 segundos.</li>
+                    <li><strong>RNF02.2:</strong> O sistema deve suportar até 500 usuários simultâneos sem degradação significativa de desempenho.</li>
+                    <li><strong>RNF02.3:</strong> O consumo de memória RAM não deve exceder 100MB durante o uso normal.</li>
+                    <li><strong>RNF02.4:</strong> O sistema deve funcionar adequadamente em dispositivos com processadores de 1.0 GHz e 1GB de RAM.</li>
+                </ul>
+                
+                <h3>RNF03 - Compatibilidade</h3>
+                <p><strong>Descrição:</strong> O sistema deve ser compatível com diferentes versões do sistema operacional Android.</p>
+                <ul>
+                    <li><strong>RNF03.1:</strong> O sistema deve ser compatível com Android 6.0 (Marshmallow) ou superior.</li>
+                    <li><strong>RNF03.2:</strong> O sistema deve se adaptar a diferentes tamanhos e resoluções de tela.</li>
+                    <li><strong>RNF03.3:</strong> O sistema deve manter a consistência visual e funcional em diferentes dispositivos.</li>
+                </ul>
+                
+                <h3>RNF04 - Disponibilidade</h3>
+                <p><strong>Descrição:</strong> O sistema deve estar disponível mesmo sem conexão constante com a internet.</p>
+                <ul>
+                    <li><strong>RNF04.1:</strong> As funcionalidades básicas devem estar disponíveis offline.</li>
+                    <li><strong>RNF04.2:</strong> O sistema deve sincronizar automaticamente os dados quando houver conexão com a internet.</li>
+                    <li><strong>RNF04.3:</strong> O sistema deve indicar claramente o status de sincronização dos dados.</li>
+                    <li><strong>RNF04.4:</strong> O sistema deve resolver conflitos de sincronização de forma automática ou assistida.</li>
+                </ul>
+                
+                <h3>RNF05 - Segurança</h3>
+                <p><strong>Descrição:</strong> O sistema deve garantir a segurança e privacidade dos dados.</p>
+                <ul>
+                    <li><strong>RNF05.1:</strong> As senhas devem ser armazenadas de forma criptografada.</li>
+                    <li><strong>RNF05.2:</strong> O acesso às funcionalidades deve ser controlado de acordo com o perfil do usuário.</li>
+                    <li><strong>RNF05.3:</strong> A comunicação com o servidor deve ser criptografada (HTTPS).</li>
+                    <li><strong>RNF05.4:</strong> O sistema deve encerrar a sessão após 30 minutos de inatividade.</li>
+                    <li><strong>RNF05.5:</strong> O sistema deve registrar logs de acesso e operações críticas.</li>
+                </ul>
+                
+                <h3>RNF06 - Escalabilidade</h3>
+                <p><strong>Descrição:</strong> O sistema deve suportar o crescimento da base de usuários e dados.</p>
+                <ul>
+                    <li><strong>RNF06.1:</strong> O sistema deve suportar até 1000 alunos cadastrados.</li>
+                    <li><strong>RNF06.2:</strong> O sistema deve permitir o armazenamento de dados históricos por pelo menos 5 anos.</li>
+                    <li><strong>RNF06.3:</strong> O sistema deve ser modular, permitindo a adição de novas funcionalidades sem impactar as existentes.</li>
+                </ul>
+                
+                <h3>RNF07 - Manutenibilidade</h3>
+                <p><strong>Descrição:</strong> O sistema deve ser fácil de manter e atualizar.</p>
+                <ul>
+                    <li><strong>RNF07.1:</strong> O código-fonte deve seguir padrões de codificação e boas práticas.</li>
+                    <li><strong>RNF07.2:</strong> O sistema deve ser modular, com baixo acoplamento entre componentes.</li>
+                    <li><strong>RNF07.3:</strong> O sistema deve incluir documentação técnica completa.</li>
+                    <li><strong>RNF07.4:</strong> As atualizações devem ser instaláveis sem perda de dados.</li>
+                </ul>
+                
+                <h3>RNF08 - Portabilidade</h3>
+                <p><strong>Descrição:</strong> O sistema deve ser portável para diferentes ambientes.</p>
+                <ul>
+                    <li><strong>RNF08.1:</strong> O sistema deve ser desenvolvido com tecnologias multiplataforma.</li>
+                    <li><strong>RNF08.2:</strong> O banco de dados deve ser independente de plataforma.</li>
+                    <li><strong>RNF08.3:</strong> O sistema deve permitir a exportação de dados em formatos padrão.</li>
+                </ul>
+                
+                <h3>RNF09 - Tamanho e Instalação</h3>
+                <p><strong>Descrição:</strong> O sistema deve ser leve e de fácil instalação.</p>
+                <ul>
+                    <li><strong>RNF09.1:</strong> O tamanho do aplicativo instalado não deve exceder 30MB.</li>
+                    <li><strong>RNF09.2:</strong> O processo de instalação deve ser simples e guiado.</li>
+                    <li><strong>RNF09.3:</strong> O sistema deve requerer permissões mínimas necessárias para seu funcionamento.</li>
+                </ul>
+                
+                <h3>RNF10 - Acessibilidade</h3>
+                <p><strong>Descrição:</strong> O sistema deve ser acessível para usuários com diferentes necessidades.</p>
+                <ul>
+                    <li><strong>RNF10.1:</strong> O sistema deve seguir diretrizes básicas de acessibilidade.</li>
+                    <li><strong>RNF10.2:</strong> O sistema deve permitir o ajuste do tamanho da fonte.</li>
+                    <li><strong>RNF10.3:</strong> O sistema deve utilizar cores com contraste adequado.</li>
+                    <li><strong>RNF10.4:</strong> O sistema deve ser compatível com recursos de acessibilidade do Android.</li>
+                </ul>
+                
+                <a href="../index.html#documentation" class="back-link">← Voltar para Documentação</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">Escol<span>App</span></div>
+            <div class="copyright">
+                &copy; 2025 EscolApp - Todos os direitos reservados
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

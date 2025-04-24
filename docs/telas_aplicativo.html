@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telas do Aplicativo - EscolApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        header {
+            background-color: #1976D2;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px 5px 0 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        h2 {
+            color: #1976D2;
+            border-bottom: 2px solid #FFC107;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #0D47A1;
+            margin-top: 20px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #1976D2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #1565C0;
+        }
+        .screen {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .mobile-frame {
+            display: inline-block;
+            border: 16px solid #333;
+            border-radius: 36px;
+            padding: 5px;
+            margin: 20px 0;
+            background-color: #333;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        .mobile-screen {
+            width: 300px;
+            height: 550px;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .screen-content {
+            padding: 20px;
+        }
+        .screen-header {
+            background-color: #1976D2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .screen-body {
+            padding: 15px;
+        }
+        .button {
+            background-color: #1976D2;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 5px;
+            display: inline-block;
+            text-align: center;
+        }
+        .input-field {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            width: 90%;
+            border-radius: 4px;
+        }
+        .menu-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .table th, .table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .screen-description {
+            margin-top: 20px;
+        }
+        .features-list {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Telas do Aplicativo - EscolApp</h1>
+        </header>
+
+        <main>
+            <h2>Introdução</h2>
+            <p>Esta página apresenta as principais telas implementadas no protótipo do EscolApp, um sistema simplificado de gestão escolar para dispositivos móveis, desenvolvido para atender às necessidades da Escola Municipal Professor Paulo Freire.</p>
+            
+            <p>As telas foram implementadas utilizando Python com o framework Kivy/KivyMD, seguindo os protótipos de interface e mantendo o foco em simplicidade, usabilidade e desempenho em dispositivos com recursos limitados.</p>
+            
+            <div class="screen">
+                <h3>Tela de Login</h3>
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="screen-header">
+                            EscolApp
+                        </div>
+                        <div class="screen-body">
+                            <div style="text-align: center; margin: 30px 0;">
+                                <div style="font-size: 24px; font-weight: bold; color: #1976D2;">EscolApp</div>
+                                <div style="font-size: 14px; color: #666; margin-top: 5px;">Sistema de Gestão Escolar</div>
+                            </div>
+                            
+                            <div style="margin: 40px 0;">
+                                <div class="input-field">Usuário</div>
+                                <div class="input-field">Senha</div>
+                                
+                                <div style="text-align: right; margin: 5px 0;">
+                                    <a href="#" style="color: #1976D2; font-size: 14px; text-decoration: none;">Esqueci minha senha</a>
+                                </div>
+                                
+                                <div style="margin: 30px 0; text-align: center;">
+                                    <div class="button" style="width: 80%;">Entrar</div>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; font-size: 12px; color: #666; margin-top: 50px;">
+                                Escola Municipal Professor Paulo Freire<br>
+                                Versão 1.0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screen-description">
+                    <h4>Descrição</h4>
+                    <p>A tela de login é a porta de entrada do aplicativo, permitindo que os usuários se autentiquem com suas credenciais. Esta tela foi implementada com foco na simplicidade e facilidade de uso.</p>
+                    
+                    <h4>Funcionalidades Implementadas</h4>
+                    <ul class="features-list">
+                        <li>Autenticação de usuários com diferentes perfis (Administrador, Professor, Aluno, Responsável)</li>
+                        <li>Validação de credenciais com feedback visual para erros</li>
+                        <li>Armazenamento seguro de credenciais para login automático em acessos futuros</li>
+                        <li>Opção de recuperação de senha (envia instruções para o e-mail cadastrado)</li>
+                        <li>Funcionamento offline com validação local de credenciais</li>
+                    </ul>
+                    
+                    <h4>Implementação Técnica</h4>
+                    <p>A tela foi implementada utilizando componentes MDTextField do KivyMD para os campos de entrada, com validação em tempo real. A autenticação é realizada contra o banco de dados SQLite local, com hash de senhas para segurança.</p>
+                </div>
+            </div>
+            
+            <div class="screen">
+                <h3>Menu Principal</h3>
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="screen-header">
+                            EscolApp - Menu Principal
+                        </div>
+                        <div class="screen-body">
+                            <div style="margin: 10px 0; padding: 10px; background-color: #f5f5f5; border-radius: 5px;">
+                                <div style="font-weight: bold;">Olá, Maria Silva</div>
+                                <div style="font-size: 14px; color: #666;">Professor(a) - Matemática</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Notas e Frequência</div>
+                                <div style="font-size: 14px; color: #666;">Registrar e consultar notas e frequência</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Comunicados</div>
+                                <div style="font-size: 14px; color: #666;">Enviar e receber mensagens</div>
+                                <div style="background-color: #F44336; color: white; border-radius: 50%; width: 20px; height: 20px; text-align: center; float: right; margin-top: -30px;">3</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Calendário Escolar</div>
+                                <div style="font-size: 14px; color: #666;">Visualizar eventos e datas importantes</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Ocorrências</div>
+                                <div style="font-size: 14px; color: #666;">Registrar ocorrências disciplinares</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Relatórios</div>
+                                <div style="font-size: 14px; color: #666;">Gerar relatórios de desempenho</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Configurações</div>
+                                <div style="font-size: 14px; color: #666;">Ajustar preferências do aplicativo</div>
+                            </div>
+                            
+                            <div style="margin: 20px 0; text-align: center;">
+                                <div class="button" style="background-color: #F44336;">Sair</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screen-description">
+                    <h4>Descrição</h4>
+                    <p>O menu principal é o hub central do aplicativo, oferecendo acesso a todas as funcionalidades disponíveis para o perfil do usuário. Esta tela se adapta automaticamente ao perfil do usuário logado, mostrando apenas as opções pertinentes.</p>
+                    
+                    <h4>Funcionalidades Implementadas</h4>
+                    <ul class="features-list">
+                        <li>Menu dinâmico que se adapta ao perfil do usuário (Administrador, Professor, Aluno, Responsável)</li>
+                        <li>Indicadores visuais para notificações não lidas</li>
+                        <li>Identificação clara do usuário logado e seu perfil</li>
+                        <li>Navegação intuitiva para as diferentes funcionalidades do sistema</li>
+                        <li>Opção de logout seguro</li>
+                    </ul>
+                    
+                    <h4>Implementação Técnica</h4>
+                    <p>A tela foi implementada utilizando MDList e MDListItem do KivyMD para criar o menu interativo. A adaptação ao perfil do usuário é feita dinamicamente no momento do carregamento da tela, com base nas permissões armazenadas no banco de dados local.</p>
+                </div>
+            </div>
+            
+            <div class="screen">
+                <h3>Registro de Notas</h3>
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="screen-header">
+                            Registro de Notas
+                        </div>
+                        <div class="screen-body">
+                            <div style="margin: 10px 0;">
+                                <div style="font-weight: bold;">Turma: 9º Ano A</div>
+                                <div style="font-size: 14px; color: #666;">Disciplina: Matemática</div>
+                                <div style="font-size: 14px; color: #666;">Bimestre: 2º Bimestre</div>
+                            </div>
+                            
+                            <table class="table">
+                                <tr>
+                                    <th>Aluno</th>
+                                    <th>Nota</th>
+                                </tr>
+                                <tr>
+                                    <td>Ana Oliveira</td>
+                                    <td><input type="text" value="8.5" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Bruno Santos</td>
+                                    <td><input type="text" value="7.0" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Carla Pereira</td>
+                                    <td><input type="text" value="9.0" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Daniel Costa</td>
+                                    <td><input type="text" value="6.5" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Eduarda Lima</td>
+                                    <td><input type="text" value="8.0" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Felipe Alves</td>
+                                    <td><input type="text" value="7.5" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                            </table>
+                            
+                            <div style="margin: 20px 0; text-align: center;">
+                                <div class="button" style="width: 45%; display: inline-block;">Salvar</div>
+                                <div class="button" style="width: 45%; display: inline-block; background-color: #F44336;">Cancelar</div>
+                            </div>
+                            
+                            <div style="margin: 20px 0; font-size: 12px; color: #666; text-align: center;">
+                                Última atualização: 15/04/2023 - 14:30<br>
+                                Status: Não sincronizado
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screen-description">
+                    <h4>Descrição</h4>
+                    <p>A tela de registro de notas permite aos professores inserir e editar as notas dos alunos de uma turma específica. Esta funcionalidade é essencial para o acompanhamento do desempenho acadêmico.</p>
+                    
+                    <h4>Funcionalidades Implementadas</h4>
+                    <ul class="features-list">
+                        <li>Seleção de turma, disciplina e bimestre</li>
+                        <li>Visualização da lista completa de alunos da turma selecionada</li>
+                        <li>Entrada de notas com validação (valores de 0 a 10 com até uma casa decimal)</li>
+                        <li>Salvamento automático local para evitar perda de dados</li>
+                        <li>Indicador de status de sincronização</li>
+                        <li>Histórico de alterações para rastreabilidade</li>
+                    </ul>
+                    
+                    <h4>Implementação Técnica</h4>
+                    <p>A tela foi implementada utilizando MDDataTable do KivyMD para exibir a lista de alunos e suas notas. Os dados são carregados do banco de dados SQLite local e as alterações são salvas automaticamente. A sincronização é realizada quando há conexão com a internet.</p>
+                </div>
+            </div>
+            
+            <div class="screen">
+                <h3>Comunicados</h3>
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="screen-header">
+                            Comunicados
+                        </div>
+                        <div class="screen-body">
+                            <div style="margin: 10px 0; text-align: right;">
+                                <div class="button" style="font-size: 14px; padding: 8px 12px;">+ Novo Comunicado</div>
+                            </div>
+                            
+                            <div style="margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                                <div style="font-weight: bold; color: #1976D2;">Reunião de Pais e Mestres</div>
+                                <div style="font-size: 12px; color: #666;">Direção • 18/04/2023</div>
+                                <div style="margin-top: 5px; font-size: 14px;">Informamos que a reunião de pais e mestres será realizada no dia 25/04/2023, das 18h às 21h.</div>
+                                <div style="background-color: #1976D2; color: white; font-size: 12px; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-top: 5px;">Geral</div>
+                            </div>
+                            
+                            <div style="margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 15px; background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
+                                <div style="font-weight: bold; color: #1976D2;">Prova de Matemática</div>
+                                <div style="font-size: 12px; color: #666;">Maria Silva (Professor) • 15/04/2023</div>
+                                <div style="margin-top: 5px; font-size: 14px;">A prova de matemática será realizada na próxima sexta-feira (21/04). Conteúdo: Equações do 2º grau e Geometria.</div>
+                                <div style="background-color: #FFC107; color: white; font-size: 12px; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-top: 5px;">9º Ano A</div>
+                                <div style="text-align: right; font-size: 12px; color: #4CAF50;">Lido</div>
+                            </div>
+                            
+                            <div style="margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                                <div style="font-weight: bold; color: #1976D2;">Feira de Ciências</div>
+                                <div style="font-size: 12px; color: #666;">Coordenação Pedagógica • 10/04/2023</div>
+                                <div style="margin-top: 5px; font-size: 14px;">Estão abertas as inscrições para a Feira de Ciências que acontecerá no dia 15/05/2023. Inscreva seu projeto até 30/04.</div>
+                                <div style="background-color: #1976D2; color: white; font-size: 12px; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-top: 5px;">Geral</div>
+                            </div>
+                            
+                            <div style="margin: 20px 0; text-align: center;">
+                                <div style="color: #666; font-size: 14px;">Mostrando 3 de 10 comunicados</div>
+                                <div class="button" style="font-size: 14px; padding: 8px 12px; margin-top: 10px;">Carregar mais</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screen-description">
+                    <h4>Descrição</h4>
+                    <p>A tela de comunicados permite visualizar mensagens enviadas pela escola, professores e outros usuários, além de permitir o envio de novos comunicados (dependendo do perfil do usuário). Esta funcionalidade é essencial para a comunicação entre escola e famílias.</p>
+                    
+                    <h4>Funcionalidades Implementadas</h4>
+                    <ul class="features-list">
+                        <li>Visualização de comunicados recebidos, ordenados por data</li>
+                        <li>Criação de novos comunicados (para perfis autorizados)</li>
+                        <li>Categorização de comunicados (geral, específico para turma, individual)</li>
+                        <li>Indicadores de status de leitura</li>
+                        <li>Armazenamento local para acesso offline</li>
+                        <li>Sincronização quando há conexão com a internet</li>
+                        <li>Notificações para novos comunicados</li>
+                    </ul>
+                    
+                    <h4>Implementação Técnica</h4>
+                    <p>A tela foi implementada utilizando MDCard do KivyMD para exibir cada comunicado. Os dados são carregados do banco de dados SQLite local com paginação para otimizar o desempenho. A criação de novos comunicados é feita através de um diálogo modal com campos para título, conteúdo e seleção de destinatários.</p>
+                </div>
+            </div>
+            
+            <h2>Considerações Técnicas</h2>
+            <p>As telas apresentadas foram implementadas utilizando Python com o framework Kivy/KivyMD, seguindo as seguintes diretrizes técnicas:</p>
+            
+            <ul>
+                <li><strong>Arquitetura MVC:</strong> Separação clara entre modelo (dados), visão (interface) e controlador (lógica)</li>
+                <li><strong>Banco de Dados Local:</strong> SQLite para armazenamento local de dados</li>
+                <li><strong>Funcionamento Offline:</strong> Todas as funcionalidades principais funcionam sem necessidade de conexão com a internet</li>
+                <li><strong>Sincronização:</strong> Mecanismo de sincronização quando há conexão disponível</li>
+                <li><strong>Otimização de Desempenho:</strong> Carregamento progressivo de dados, uso eficiente de memória</li>
+                <li><strong>Responsividade:</strong> Adaptação a diferentes tamanhos de tela e orientações</li>
+                <li><strong>Acessibilidade:</strong> Elementos de tamanho adequado, contraste suficiente, suporte a recursos de acessibilidade do sistema</li>
+            </ul>
+            
+            <h2>Próximos Passos</h2>
+            <p>O protótipo implementado demonstra as funcionalidades principais do EscolApp, mas ainda há espaço para melhorias e expansões:</p>
+            
+            <ul>
+                <li>Implementação completa de todas as funcionalidades planejadas</li>
+                <li>Refinamento da interface com base em feedback de usuários reais</li>
+                <li>Melhorias de desempenho para dispositivos com recursos muito limitados</li>
+                <li>Expansão das funcionalidades de sincronização</li>
+                <li>Implementação de recursos adicionais de acessibilidade</li>
+                <li>Testes extensivos em diferentes dispositivos e condições de uso</li>
+            </ul>
+
+            <a href="../index.html" class="back-link">Voltar para a página inicial</a>
+        </main>
+
+        <div class="footer">
+            <p>EscolApp - Sistema Simplificado de Gestão Escolar para Dispositivos Móveis</p>
+            <p>Projeto Multidisciplinar Final - Análise e Desenvolvimento de Sistemas</p>
+        </div>
+    </div>
+</body>
+</html>
