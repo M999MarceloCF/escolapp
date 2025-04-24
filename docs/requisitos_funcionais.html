@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos Funcionais - EscolApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --secondary-color: #FFC107;
+            --dark-color: #0D47A1;
+            --light-color: #BBDEFB;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #fff;
+            --section-padding: 60px 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .content {
+            padding: 120px 0 60px;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-title h1 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .page-title p {
+            color: var(--light-text);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .doc-content {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .doc-content h2 {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .doc-content h3 {
+            color: var(--dark-color);
+            font-size: 22px;
+            margin: 30px 0 15px;
+        }
+        
+        .doc-content p {
+            margin-bottom: 15px;
+        }
+        
+        .doc-content ul, .doc-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .doc-content li {
+            margin-bottom: 10px;
+        }
+        
+        .doc-content code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .doc-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .doc-content th, .doc-content td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .doc-content th {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .doc-content tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            color: var(--light-color);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .doc-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Escol<span>App</span></div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../index.html#features">Funcionalidades</a></li>
+                    <li><a href="../index.html#about">Sobre</a></li>
+                    <li><a href="../index.html#documentation">Documentação</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container">
+            <div class="page-title">
+                <h1>Requisitos Funcionais</h1>
+                <p>Detalhamento dos requisitos funcionais do sistema EscolApp</p>
+            </div>
+            
+            <div class="doc-content">
+                <h2>Requisitos Funcionais - EscolApp</h2>
+                
+                <p>Este documento apresenta os requisitos funcionais do sistema EscolApp, um aplicativo mobile simplificado para gestão escolar, desenvolvido para a Escola Municipal Professor Paulo Freire.</p>
+                
+                <h3>RF01 - Gestão de Usuários</h3>
+                <p><strong>Descrição:</strong> O sistema deve permitir o cadastro, edição, consulta e exclusão de usuários com diferentes perfis de acesso.</p>
+                <ul>
+                    <li><strong>RF01.1:</strong> Cadastrar usuários com os seguintes perfis: direção, coordenação, professor, secretaria, pais/responsáveis.</li>
+                    <li><strong>RF01.2:</strong> Permitir a edição de dados cadastrais dos usuários.</li>
+                    <li><strong>RF01.3:</strong> Permitir a consulta de usuários cadastrados.</li>
+                    <li><strong>RF01.4:</strong> Permitir a inativação de usuários (exclusão lógica).</li>
+                    <li><strong>RF01.5:</strong> Controlar o acesso às funcionalidades de acordo com o perfil do usuário.</li>
+                </ul>
+                
+                <h3>RF02 - Autenticação</h3>
+                <p><strong>Descrição:</strong> O sistema deve controlar o acesso através de login e senha.</p>
+                <ul>
+                    <li><strong>RF02.1:</strong> Permitir login com nome de usuário e senha.</li>
+                    <li><strong>RF02.2:</strong> Permitir recuperação de senha através de e-mail cadastrado.</li>
+                    <li><strong>RF02.3:</strong> Encerrar sessão após período de inatividade.</li>
+                    <li><strong>RF02.4:</strong> Permitir que o usuário altere sua própria senha.</li>
+                </ul>
+                
+                <h3>RF03 - Gestão de Turmas</h3>
+                <p><strong>Descrição:</strong> O sistema deve permitir o cadastro e gerenciamento de turmas.</p>
+                <ul>
+                    <li><strong>RF03.1:</strong> Cadastrar turmas com informações como nome, ano letivo e período.</li>
+                    <li><strong>RF03.2:</strong> Associar alunos às turmas.</li>
+                    <li><strong>RF03.3:</strong> Associar professores e disciplinas às turmas.</li>
+                    <li><strong>RF03.4:</strong> Permitir a consulta de turmas e seus integrantes.</li>
+                </ul>
+                
+                <h3>RF04 - Registro de Notas</h3>
+                <p><strong>Descrição:</strong> O sistema deve permitir o registro e consulta de notas dos alunos.</p>
+                <ul>
+                    <li><strong>RF04.1:</strong> Permitir que professores registrem notas por aluno, disciplina e bimestre.</li>
+                    <li><strong>RF04.2:</strong> Calcular automaticamente a média bimestral e anual.</li>
+                    <li><strong>RF04.3:</strong> Permitir a consulta de notas pelos alunos e pais/responsáveis.</li>
+                    <li><strong>RF04.4:</strong> Permitir a geração de boletins por aluno.</li>
+                </ul>
+                
+                <h3>RF05 - Registro de Frequência</h3>
+                <p><strong>Descrição:</strong> O sistema deve permitir o registro e consulta de frequência dos alunos.</p>
+                <ul>
+                    <li><strong>RF05.1:</strong> Permitir que professores registrem presença/ausência por aluno, disciplina e data.</li>
+                    <li><strong>RF05.2:</strong> Calcular automaticamente o percentual de frequência.</li>
+                    <li><strong>RF05.3:</strong> Alertar sobre alunos com frequência abaixo do mínimo exigido (75%).</li>
+                    <li><strong>RF05.4:</strong> Permitir a consulta de frequência pelos alunos e pais/responsáveis.</li>
+                </ul>
+                
+                <h3>RF06 - Comunicados</h3>
+                <p><strong>Descrição:</strong> O sistema deve permitir o envio e recebimento de comunicados entre escola e famílias.</p>
+                <ul>
+                    <li><strong>RF06.1:</strong> Permitir que a direção, coordenação e secretaria criem comunicados.</li>
+                    <li><strong>RF06.2:</strong> Permitir a aprovação de comunicados pela direção antes do envio.</li>
+                    <li><strong>RF06.3:</strong> Enviar comunicados para turmas específicas ou para toda a escola.</li>
+                    <li><strong>RF06.4:</strong> Permitir a visualização de comunicados pelos pais/responsáveis.</li>
+                    <li><strong>RF06.5:</strong> Registrar a leitura dos comunicados pelos destinatários.</li>
+                </ul>
+                
+                <h3>RF07 - Calendário Escolar</h3>
+                <p><strong>Descrição:</strong> O sistema deve disponibilizar o calendário escolar com eventos e datas importantes.</p>
+                <ul>
+                    <li><strong>RF07.1:</strong> Permitir que a direção e coordenação cadastrem eventos no calendário.</li>
+                    <li><strong>RF07.2:</strong> Categorizar eventos (feriados, reuniões, provas, etc.).</li>
+                    <li><strong>RF07.3:</strong> Permitir a visualização do calendário por todos os usuários.</li>
+                    <li><strong>RF07.4:</strong> Enviar notificações sobre eventos próximos.</li>
+                </ul>
+                
+                <h3>RF08 - Ocorrências Disciplinares</h3>
+                <p><strong>Descrição:</strong> O sistema deve permitir o registro e acompanhamento de ocorrências disciplinares.</p>
+                <ul>
+                    <li><strong>RF08.1:</strong> Permitir que professores e coordenação registrem ocorrências por aluno.</li>
+                    <li><strong>RF08.2:</strong> Classificar ocorrências por tipo e gravidade.</li>
+                    <li><strong>RF08.3:</strong> Notificar pais/responsáveis sobre ocorrências registradas.</li>
+                    <li><strong>RF08.4:</strong> Permitir a consulta do histórico de ocorrências por aluno.</li>
+                </ul>
+                
+                <h3>RF09 - Relatórios</h3>
+                <p><strong>Descrição:</strong> O sistema deve gerar relatórios para acompanhamento pedagógico e administrativo.</p>
+                <ul>
+                    <li><strong>RF09.1:</strong> Gerar relatório de desempenho por aluno, turma e disciplina.</li>
+                    <li><strong>RF09.2:</strong> Gerar relatório de frequência por aluno, turma e disciplina.</li>
+                    <li><strong>RF09.3:</strong> Gerar relatório de ocorrências disciplinares.</li>
+                    <li><strong>RF09.4:</strong> Permitir a exportação de relatórios em formato PDF.</li>
+                </ul>
+                
+                <h3>RF10 - Funcionamento Offline</h3>
+                <p><strong>Descrição:</strong> O sistema deve permitir o funcionamento básico mesmo sem conexão com a internet.</p>
+                <ul>
+                    <li><strong>RF10.1:</strong> Armazenar dados localmente no dispositivo.</li>
+                    <li><strong>RF10.2:</strong> Permitir o registro de notas e frequência offline.</li>
+                    <li><strong>RF10.3:</strong> Sincronizar dados automaticamente quando houver conexão.</li>
+                    <li><strong>RF10.4:</strong> Indicar visualmente o status de sincronização dos dados.</li>
+                </ul>
+                
+                <a href="../index.html#documentation" class="back-link">← Voltar para Documentação</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">Escol<span>App</span></div>
+            <div class="copyright">
+                &copy; 2025 EscolApp - Todos os direitos reservados
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
