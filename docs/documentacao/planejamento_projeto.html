@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento do Projeto - EscolApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        header {
+            background-color: #1976D2;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px 5px 0 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        h2 {
+            color: #1976D2;
+            border-bottom: 2px solid #FFC107;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #0D47A1;
+            margin-top: 20px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #1976D2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #1565C0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #1976D2;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .gantt-chart {
+            margin: 30px 0;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .gantt-bar {
+            height: 30px;
+            background-color: #1976D2;
+            margin: 5px 0;
+            border-radius: 3px;
+            position: relative;
+        }
+        .gantt-label {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            color: white;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Planejamento do Projeto - EscolApp</h1>
+        </header>
+
+        <main>
+            <h2>Introdução</h2>
+            <p>Este documento apresenta o planejamento do projeto EscolApp, um sistema simplificado de gestão escolar para dispositivos móveis, desenvolvido para atender às necessidades da Escola Municipal Professor Paulo Freire.</p>
+            
+            <h2>Metodologia de Desenvolvimento</h2>
+            <p>O projeto será desenvolvido utilizando uma metodologia ágil adaptada, com ciclos de desenvolvimento curtos e entregas incrementais. Esta abordagem foi escolhida por:</p>
+            <ul>
+                <li>Permitir feedback constante do cliente</li>
+                <li>Facilitar adaptações e ajustes durante o desenvolvimento</li>
+                <li>Possibilitar entregas parciais de funcionalidades</li>
+                <li>Ser adequada para equipes pequenas</li>
+            </ul>
+            
+            <h2>Equipe do Projeto</h2>
+            <p>A equipe do projeto é composta por:</p>
+            <table>
+                <tr>
+                    <th>Função</th>
+                    <th>Responsabilidades</th>
+                </tr>
+                <tr>
+                    <td>Gerente de Projeto</td>
+                    <td>Coordenação geral, comunicação com o cliente, gestão de recursos</td>
+                </tr>
+                <tr>
+                    <td>Analista de Requisitos</td>
+                    <td>Levantamento e documentação de requisitos, validação com o cliente</td>
+                </tr>
+                <tr>
+                    <td>Desenvolvedor Frontend</td>
+                    <td>Desenvolvimento da interface do aplicativo, experiência do usuário</td>
+                </tr>
+                <tr>
+                    <td>Desenvolvedor Backend</td>
+                    <td>Desenvolvimento da lógica de negócio, banco de dados, sincronização</td>
+                </tr>
+                <tr>
+                    <td>Testador</td>
+                    <td>Planejamento e execução de testes, validação de qualidade</td>
+                </tr>
+            </table>
+            
+            <h2>Cronograma</h2>
+            <p>O projeto será desenvolvido em um período de 12 semanas, dividido nas seguintes fases:</p>
+            
+            <table>
+                <tr>
+                    <th>Fase</th>
+                    <th>Duração</th>
+                    <th>Atividades Principais</th>
+                </tr>
+                <tr>
+                    <td>Iniciação</td>
+                    <td>1 semana</td>
+                    <td>Definição do escopo, análise inicial, formação da equipe</td>
+                </tr>
+                <tr>
+                    <td>Planejamento</td>
+                    <td>2 semanas</td>
+                    <td>Levantamento detalhado de requisitos, definição de arquitetura, planejamento de sprints</td>
+                </tr>
+                <tr>
+                    <td>Execução - Sprint 1</td>
+                    <td>2 semanas</td>
+                    <td>Desenvolvimento do módulo de autenticação e perfis de usuário</td>
+                </tr>
+                <tr>
+                    <td>Execução - Sprint 2</td>
+                    <td>2 semanas</td>
+                    <td>Desenvolvimento do módulo de registro de notas e frequência</td>
+                </tr>
+                <tr>
+                    <td>Execução - Sprint 3</td>
+                    <td>2 semanas</td>
+                    <td>Desenvolvimento do módulo de comunicados e calendário</td>
+                </tr>
+                <tr>
+                    <td>Execução - Sprint 4</td>
+                    <td>2 semanas</td>
+                    <td>Desenvolvimento do módulo de ocorrências e sincronização</td>
+                </tr>
+                <tr>
+                    <td>Encerramento</td>
+                    <td>1 semana</td>
+                    <td>Testes finais, documentação, treinamento, entrega</td>
+                </tr>
+            </table>
+            
+            <div class="gantt-chart">
+                <h3>Gráfico de Gantt Simplificado</h3>
+                <div class="gantt-bar" style="width: 8%;">
+                    <span class="gantt-label">Iniciação</span>
+                </div>
+                <div class="gantt-bar" style="width: 17%; margin-left: 8%;">
+                    <span class="gantt-label">Planejamento</span>
+                </div>
+                <div class="gantt-bar" style="width: 17%; margin-left: 25%;">
+                    <span class="gantt-label">Sprint 1</span>
+                </div>
+                <div class="gantt-bar" style="width: 17%; margin-left: 42%;">
+                    <span class="gantt-label">Sprint 2</span>
+                </div>
+                <div class="gantt-bar" style="width: 17%; margin-left: 59%;">
+                    <span class="gantt-label">Sprint 3</span>
+                </div>
+                <div class="gantt-bar" style="width: 17%; margin-left: 76%;">
+                    <span class="gantt-label">Sprint 4</span>
+                </div>
+                <div class="gantt-bar" style="width: 8%; margin-left: 92%;">
+                    <span class="gantt-label">Encerramento</span>
+                </div>
+            </div>
+            
+            <h2>Estimativas de Recursos</h2>
+            <p>Os recursos necessários para o desenvolvimento do projeto incluem:</p>
+            
+            <h3>Recursos Humanos</h3>
+            <ul>
+                <li>1 Gerente de Projeto (dedicação parcial)</li>
+                <li>1 Analista de Requisitos (dedicação integral nas fases iniciais)</li>
+                <li>1 Desenvolvedor Frontend (dedicação integral)</li>
+                <li>1 Desenvolvedor Backend (dedicação integral)</li>
+                <li>1 Testador (dedicação parcial)</li>
+            </ul>
+            
+            <h3>Recursos Tecnológicos</h3>
+            <ul>
+                <li>Computadores para desenvolvimento</li>
+                <li>Dispositivos Android para testes</li>
+                <li>Ambiente de desenvolvimento Python/Kivy</li>
+                <li>Ferramentas de controle de versão (Git)</li>
+                <li>Ferramentas de gestão de projeto</li>
+            </ul>
+            
+            <h2>Gestão de Riscos</h2>
+            <p>Os principais riscos identificados para o projeto são:</p>
+            
+            <table>
+                <tr>
+                    <th>Risco</th>
+                    <th>Probabilidade</th>
+                    <th>Impacto</th>
+                    <th>Estratégia de Mitigação</th>
+                </tr>
+                <tr>
+                    <td>Mudanças nos requisitos</td>
+                    <td>Média</td>
+                    <td>Alto</td>
+                    <td>Documentação clara, validações frequentes com o cliente</td>
+                </tr>
+                <tr>
+                    <td>Dificuldades técnicas com Kivy</td>
+                    <td>Média</td>
+                    <td>Médio</td>
+                    <td>Capacitação prévia, protótipos iniciais, plano B com tecnologia alternativa</td>
+                </tr>
+                <tr>
+                    <td>Atrasos no cronograma</td>
+                    <td>Alta</td>
+                    <td>Médio</td>
+                    <td>Monitoramento constante, priorização de funcionalidades, buffer no cronograma</td>
+                </tr>
+                <tr>
+                    <td>Problemas de sincronização offline/online</td>
+                    <td>Alta</td>
+                    <td>Alto</td>
+                    <td>Testes extensivos, implementação gradual, foco inicial no modo offline</td>
+                </tr>
+                <tr>
+                    <td>Resistência dos usuários</td>
+                    <td>Média</td>
+                    <td>Alto</td>
+                    <td>Envolvimento dos usuários desde o início, treinamento adequado, interface intuitiva</td>
+                </tr>
+            </table>
+            
+            <h2>Plano de Comunicação</h2>
+            <p>A comunicação no projeto será gerenciada da seguinte forma:</p>
+            <ul>
+                <li><strong>Reuniões diárias:</strong> Breves encontros da equipe para alinhamento</li>
+                <li><strong>Reuniões de sprint:</strong> Planejamento e revisão a cada duas semanas</li>
+                <li><strong>Reuniões com o cliente:</strong> Quinzenais para validação e feedback</li>
+                <li><strong>Ferramentas de comunicação:</strong> E-mail, mensageria instantânea, sistema de gestão de projetos</li>
+                <li><strong>Documentação:</strong> Compartilhada em repositório acessível a todos os envolvidos</li>
+            </ul>
+            
+            <h2>Critérios de Aceitação</h2>
+            <p>O projeto será considerado concluído com sucesso quando:</p>
+            <ul>
+                <li>Todas as funcionalidades essenciais estiverem implementadas e testadas</li>
+                <li>O aplicativo funcionar adequadamente em modo offline</li>
+                <li>A sincronização de dados funcionar corretamente</li>
+                <li>Os testes de usabilidade com usuários reais forem satisfatórios</li>
+                <li>A documentação estiver completa</li>
+                <li>O cliente formal aprovar a entrega</li>
+            </ul>
+
+            <a href="../index.html" class="back-link">Voltar para a página inicial</a>
+        </main>
+
+        <div class="footer">
+            <p>EscolApp - Sistema Simplificado de Gestão Escolar para Dispositivos Móveis</p>
+            <p>Projeto Multidisciplinar Final - Análise e Desenvolvimento de Sistemas</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipos de Interface - EscolApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        header {
+            background-color: #1976D2;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px 5px 0 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        h2 {
+            color: #1976D2;
+            border-bottom: 2px solid #FFC107;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #0D47A1;
+            margin-top: 20px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #1976D2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #1565C0;
+        }
+        .prototype {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .prototype-image {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            background-color: #fff;
+        }
+        .prototype-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+        .prototype-description {
+            margin-top: 15px;
+        }
+        .mobile-frame {
+            display: inline-block;
+            border: 16px solid #333;
+            border-radius: 36px;
+            padding: 5px;
+            margin: 20px 0;
+            background-color: #333;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        .mobile-screen {
+            width: 300px;
+            height: 550px;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .screen-content {
+            padding: 20px;
+        }
+        .screen-header {
+            background-color: #1976D2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .screen-body {
+            padding: 15px;
+        }
+        .button {
+            background-color: #1976D2;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 5px;
+            display: inline-block;
+            text-align: center;
+        }
+        .input-field {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            width: 90%;
+            border-radius: 4px;
+        }
+        .menu-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .table th, .table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Protótipos de Interface - EscolApp</h1>
+        </header>
+
+        <main>
+            <h2>Introdução</h2>
+            <p>Este documento apresenta os protótipos de interface do EscolApp, um sistema simplificado de gestão escolar para dispositivos móveis, desenvolvido para atender às necessidades da Escola Municipal Professor Paulo Freire.</p>
+            
+            <p>Os protótipos foram desenvolvidos seguindo princípios de design centrado no usuário, com foco em simplicidade, usabilidade e acessibilidade, considerando as limitações de dispositivos móveis mais antigos e o contexto de uma escola pública.</p>
+            
+            <h2>Diretrizes de Design</h2>
+            <p>Os protótipos seguem as seguintes diretrizes de design:</p>
+            <ul>
+                <li><strong>Simplicidade:</strong> Interface limpa e direta, sem elementos desnecessários</li>
+                <li><strong>Consistência:</strong> Padrões visuais e de interação consistentes em toda a aplicação</li>
+                <li><strong>Acessibilidade:</strong> Textos legíveis, contraste adequado, elementos de tamanho suficiente para toque</li>
+                <li><strong>Eficiência:</strong> Fluxos de trabalho otimizados, minimizando o número de toques necessários</li>
+                <li><strong>Feedback:</strong> Respostas claras às ações do usuário</li>
+                <li><strong>Desempenho:</strong> Elementos visuais leves para garantir bom desempenho em dispositivos mais antigos</li>
+            </ul>
+            
+            <h2>Paleta de Cores</h2>
+            <p>A paleta de cores foi escolhida para transmitir confiança, seriedade e um ambiente educacional, além de garantir boa legibilidade:</p>
+            <ul>
+                <li><strong>Cor primária:</strong> Azul (#1976D2) - Utilizada em cabeçalhos, botões principais e elementos de destaque</li>
+                <li><strong>Cor secundária:</strong> Amarelo (#FFC107) - Utilizada em elementos de destaque secundários e acentos</li>
+                <li><strong>Cor de fundo:</strong> Branco (#FFFFFF) para áreas de conteúdo, Cinza claro (#F5F5F5) para fundo geral</li>
+                <li><strong>Cor de texto:</strong> Cinza escuro (#333333) para texto principal, Cinza médio (#666666) para texto secundário</li>
+                <li><strong>Cores de feedback:</strong> Verde (#4CAF50) para sucesso, Vermelho (#F44336) para erro, Amarelo (#FFC107) para alerta</li>
+            </ul>
+            
+            <h2>Tipografia</h2>
+            <p>A tipografia foi escolhida para garantir boa legibilidade em diferentes tamanhos de tela:</p>
+            <ul>
+                <li><strong>Fonte principal:</strong> Roboto - Uma fonte sem serifa, clara e moderna</li>
+                <li><strong>Tamanhos:</strong> 16px para texto principal, 14px para texto secundário, 20px para títulos, 24px para cabeçalhos principais</li>
+                <li><strong>Pesos:</strong> Regular para texto normal, Bold para títulos e elementos de destaque</li>
+            </ul>
+            
+            <h2>Protótipos de Telas</h2>
+            
+            <div class="prototype">
+                <h3>Tela de Login</h3>
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="screen-header">
+                            EscolApp
+                        </div>
+                        <div class="screen-body">
+                            <div style="text-align: center; margin: 30px 0;">
+                                <div style="font-size: 24px; font-weight: bold; color: #1976D2;">EscolApp</div>
+                                <div style="font-size: 14px; color: #666; margin-top: 5px;">Sistema de Gestão Escolar</div>
+                            </div>
+                            
+                            <div style="margin: 40px 0;">
+                                <div class="input-field">Usuário</div>
+                                <div class="input-field">Senha</div>
+                                
+                                <div style="text-align: right; margin: 5px 0;">
+                                    <a href="#" style="color: #1976D2; font-size: 14px; text-decoration: none;">Esqueci minha senha</a>
+                                </div>
+                                
+                                <div style="margin: 30px 0; text-align: center;">
+                                    <div class="button" style="width: 80%;">Entrar</div>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; font-size: 12px; color: #666; margin-top: 50px;">
+                                Escola Municipal Professor Paulo Freire<br>
+                                Versão 1.0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="prototype-description">
+                    <h4>Descrição</h4>
+                    <p>A tela de login é a porta de entrada do aplicativo. Ela foi projetada para ser simples e direta, solicitando apenas as informações essenciais (usuário e senha).</p>
+                    
+                    <h4>Elementos principais</h4>
+                    <ul>
+                        <li>Logo e nome do aplicativo</li>
+                        <li>Campos de entrada para usuário e senha</li>
+                        <li>Link para recuperação de senha</li>
+                        <li>Botão de login</li>
+                        <li>Informações da escola e versão do aplicativo</li>
+                    </ul>
+                    
+                    <h4>Considerações de usabilidade</h4>
+                    <ul>
+                        <li>Campos de entrada grandes para facilitar a digitação em dispositivos móveis</li>
+                        <li>Botão de login amplo e destacado</li>
+                        <li>Opção de recuperação de senha facilmente acessível</li>
+                        <li>Feedback visual claro para erros de autenticação (não mostrado no protótipo)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="prototype">
+                <h3>Menu Principal</h3>
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="screen-header">
+                            EscolApp - Menu Principal
+                        </div>
+                        <div class="screen-body">
+                            <div style="margin: 10px 0; padding: 10px; background-color: #f5f5f5; border-radius: 5px;">
+                                <div style="font-weight: bold;">Olá, Maria Silva</div>
+                                <div style="font-size: 14px; color: #666;">Professor(a) - Matemática</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Notas e Frequência</div>
+                                <div style="font-size: 14px; color: #666;">Registrar e consultar notas e frequência</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Comunicados</div>
+                                <div style="font-size: 14px; color: #666;">Enviar e receber mensagens</div>
+                                <div style="background-color: #F44336; color: white; border-radius: 50%; width: 20px; height: 20px; text-align: center; float: right; margin-top: -30px;">3</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Calendário Escolar</div>
+                                <div style="font-size: 14px; color: #666;">Visualizar eventos e datas importantes</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Ocorrências</div>
+                                <div style="font-size: 14px; color: #666;">Registrar ocorrências disciplinares</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Relatórios</div>
+                                <div style="font-size: 14px; color: #666;">Gerar relatórios de desempenho</div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div style="font-weight: bold;">Configurações</div>
+                                <div style="font-size: 14px; color: #666;">Ajustar preferências do aplicativo</div>
+                            </div>
+                            
+                            <div style="margin: 20px 0; text-align: center;">
+                                <div class="button" style="background-color: #F44336;">Sair</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="prototype-description">
+                    <h4>Descrição</h4>
+                    <p>O menu principal é o hub central do aplicativo, oferecendo acesso a todas as funcionalidades disponíveis para o perfil do usuário. Este exemplo mostra o menu para um usuário com perfil de Professor.</p>
+                    
+                    <h4>Elementos principais</h4>
+                    <ul>
+                        <li>Cabeçalho com identificação do usuário e seu perfil</li>
+                        <li>Lista de funcionalidades disponíveis</li>
+                        <li>Indicadores visuais para notificações não lidas</li>
+                        <li>Botão de logout</li>
+                    </ul>
+                    
+                    <h4>Considerações de usabilidade</h4>
+                    <ul>
+                        <li>Itens de menu amplos para facilitar o toque</li>
+                        <li>Descrições claras para cada funcionalidade</li>
+                        <li>Indicadores visuais destacados para chamar atenção para itens que requerem ação</li>
+                        <li>Organização das funcionalidades por ordem de importância e frequência de uso</li>
+                    </ul>
+                    
+                    <h4>Adaptação por perfil</h4>
+                    <p>O menu principal se adapta automaticamente ao perfil do usuário:</p>
+                    <ul>
+                        <li><strong>Administrador:</strong> Acesso a todas as funcionalidades, incluindo gerenciamento de usuários</li>
+                        <li><strong>Professor:</strong> Acesso a registro de notas, frequência, comunicados, calendário e ocorrências</li>
+                        <li><strong>Aluno:</strong> Acesso a visualização de notas, frequência, comunicados e calendário</li>
+                        <li><strong>Responsável:</strong> Acesso a visualização de notas, frequência, comunicados, calendário e ocorrências dos alunos sob sua responsabilidade</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="prototype">
+                <h3>Registro de Notas</h3>
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="screen-header">
+                            Registro de Notas
+                        </div>
+                        <div class="screen-body">
+                            <div style="margin: 10px 0;">
+                                <div style="font-weight: bold;">Turma: 9º Ano A</div>
+                                <div style="font-size: 14px; color: #666;">Disciplina: Matemática</div>
+                                <div style="font-size: 14px; color: #666;">Bimestre: 2º Bimestre</div>
+                            </div>
+                            
+                            <table class="table">
+                                <tr>
+                                    <th>Aluno</th>
+                                    <th>Nota</th>
+                                </tr>
+                                <tr>
+                                    <td>Ana Oliveira</td>
+                                    <td><input type="text" value="8.5" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Bruno Santos</td>
+                                    <td><input type="text" value="7.0" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Carla Pereira</td>
+                                    <td><input type="text" value="9.0" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Daniel Costa</td>
+                                    <td><input type="text" value="6.5" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Eduarda Lima</td>
+                                    <td><input type="text" value="8.0" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                                <tr>
+                                    <td>Felipe Alves</td>
+                                    <td><input type="text" value="7.5" style="width: 40px; text-align: center;"></td>
+                                </tr>
+                            </table>
+                            
+                            <div style="margin: 20px 0; text-align: center;">
+                                <div class="button" style="width: 45%; display: inline-block;">Salvar</div>
+                                <div class="button" style="width: 45%; display: inline-block; background-color: #F44336;">Cancelar</div>
+                            </div>
+                            
+                            <div style="margin: 20px 0; font-size: 12px; color: #666; text-align: center;">
+                                Última atualização: 15/04/2023 - 14:30<br>
+                                Status: Não sincronizado
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="prototype-description">
+                    <h4>Descrição</h4>
+                    <p>A tela de registro de notas permite aos professores inserir e editar as notas dos alunos de uma turma específica.</p>
+                    
+                    <h4>Elementos principais</h4>
+                    <ul>
+                        <li>Informações da turma, disciplina e bimestre</li>
+                        <li>Lista de alunos com campos para inserção de notas</li>
+                        <li>Botões para salvar ou cancelar as alterações</li>
+                        <li>Informações sobre a última atualização e status de sincronização</li>
+                    </ul>
+                    
+                    <h4>Considerações de usabilidade</h4>
+                    <ul>
+                        <li>Layout tabular para facilitar a visualização e edição de múltiplas notas</li>
+                        <li>Campos de entrada numérica otimizados para digitação de notas</li>
+                        <li>Feedback claro sobre o status de sincronização</li>
+                        <li>Opção de cancelar para evitar alterações acidentais</li>
+                    </ul>
+                    
+                    <h4>Funcionalidades adicionais</h4>
+                    <ul>
+                        <li>Validação de entrada para garantir que as notas estejam dentro da escala permitida (0-10)</li>
+                        <li>Salvamento automático local para evitar perda de dados</li>
+                        <li>Sincronização quando houver conexão com a internet</li>
+                        <li>Histórico de alterações para rastreabilidade</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="prototype">
+                <h3>Comunicados</h3>
+                <div class="mobile-frame">
+                    <div class="mobile-screen">
+                        <div class="screen-header">
+                            Comunicados
+                        </div>
+                        <div class="screen-body">
+                            <div style="margin: 10px 0; text-align: right;">
+                                <div class="button" style="font-size: 14px; padding: 8px 12px;">+ Novo Comunicado</div>
+                            </div>
+                            
+                            <div style="margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                                <div style="font-weight: bold; color: #1976D2;">Reunião de Pais e Mestres</div>
+                                <div style="font-size: 12px; color: #666;">Direção • 18/04/2023</div>
+                                <div style="margin-top: 5px; font-size: 14px;">Informamos que a reunião de pais e mestres será realizada no dia 25/04/2023, das 18h às 21h.</div>
+                                <div style="background-color: #1976D2; color: white; font-size: 12px; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-top: 5px;">Geral</div>
+                            </div>
+                            
+                            <div style="margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 15px; background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
+                                <div style="font-weight: bold; color: #1976D2;">Prova de Matemática</div>
+                                <div style="font-size: 12px; color: #666;">Maria Silva (Professor) • 15/04/2023</div>
+                                <div style="margin-top: 5px; font-size: 14px;">A prova de matemática será realizada na próxima sexta-feira (21/04). Conteúdo: Equações do 2º grau e Geometria.</div>
+                                <div style="background-color: #FFC107; color: white; font-size: 12px; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-top: 5px;">9º Ano A</div>
+                                <div style="text-align: right; font-size: 12px; color: #4CAF50;">Lido</div>
+                            </div>
+                            
+                            <div style="margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                                <div style="font-weight: bold; color: #1976D2;">Feira de Ciências</div>
+                                <div style="font-size: 12px; color: #666;">Coordenação Pedagógica • 10/04/2023</div>
+                                <div style="margin-top: 5px; font-size: 14px;">Estão abertas as inscrições para a Feira de Ciências que acontecerá no dia 15/05/2023. Inscreva seu projeto até 30/04.</div>
+                                <div style="background-color: #1976D2; color: white; font-size: 12px; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-top: 5px;">Geral</div>
+                            </div>
+                            
+                            <div style="margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                                <div style="font-weight: bold; color: #1976D2;">Recuperação de Português</div>
+                                <div style="font-size: 12px; color: #666;">João Oliveira (Professor) • 05/04/2023</div>
+                                <div style="margin-top: 5px; font-size: 14px;">As aulas de recuperação de Português começarão na próxima semana, às terças e quintas, das 14h às 15h.</div>
+                                <div style="background-color: #FFC107; color: white; font-size: 12px; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-top: 5px;">9º Ano A</div>
+                            </div>
+                            
+                            <div style="margin: 20px 0; text-align: center;">
+                                <div style="color: #666; font-size: 14px;">Mostrando 4 de 12 comunicados</div>
+                                <div class="button" style="font-size: 14px; padding: 8px 12px; margin-top: 10px;">Carregar mais</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="prototype-description">
+                    <h4>Descrição</h4>
+                    <p>A tela de comunicados permite visualizar mensagens enviadas pela escola, professores e outros usuários, além de permitir o envio de novos comunicados (dependendo do perfil do usuário).</p>
+                    
+                    <h4>Elementos principais</h4>
+                    <ul>
+                        <li>Botão para criar novo comunicado (visível apenas para perfis autorizados)</li>
+                        <li>Lista de comunicados recebidos, ordenados por data (mais recentes primeiro)</li>
+                        <li>Informações sobre remetente, data e público-alvo de cada comunicado</li>
+                        <li>Indicadores visuais de status de leitura</li>
+                        <li>Opção para carregar mais comunicados</li>
+                    </ul>
+                    
+                    <h4>Considerações de usabilidade</h4>
+                    <ul>
+                        <li>Destaque visual para comunicados não lidos</li>
+                        <li>Informações essenciais visíveis sem necessidade de abrir o comunicado</li>
+                        <li>Categorização visual por tipo de comunicado (geral, específico para turma)</li>
+                        <li>Carregamento progressivo para otimizar desempenho</li>
+                    </ul>
+                    
+                    <h4>Funcionalidades adicionais</h4>
+                    <ul>
+                        <li>Filtros por tipo de comunicado, remetente ou data</li>
+                        <li>Busca por palavras-chave</li>
+                        <li>Notificações para novos comunicados</li>
+                        <li>Opção de responder a comunicados (quando aplicável)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Considerações Finais</h2>
+            <p>Os protótipos apresentados representam as principais telas do EscolApp, demonstrando a abordagem de design centrado no usuário e focado na simplicidade e usabilidade.</p>
+            
+            <p>Todas as telas foram projetadas considerando:</p>
+            <ul>
+                <li>O contexto de uso em uma escola pública</li>
+                <li>As limitações de dispositivos móveis mais antigos</li>
+                <li>A possibilidade de uso offline</li>
+                <li>A diversidade de usuários, com diferentes níveis de familiaridade com tecnologia</li>
+            </ul>
+            
+            <p>Os protótipos servirão como base para o desenvolvimento da interface do aplicativo, podendo sofrer ajustes durante a implementação para atender a requisitos técnicos específicos ou feedback dos usuários.</p>
+
+            <a href="../index.html" class="back-link">Voltar para a página inicial</a>
+        </main>
+
+        <div class="footer">
+            <p>EscolApp - Sistema Simplificado de Gestão Escolar para Dispositivos Móveis</p>
+            <p>Projeto Multidisciplinar Final - Análise e Desenvolvimento de Sistemas</p>
+        </div>
+    </div>
+</body>
+</html>

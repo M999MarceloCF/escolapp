@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelagem de Dados - EscolApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        header {
+            background-color: #1976D2;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px 5px 0 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        h2 {
+            color: #1976D2;
+            border-bottom: 2px solid #FFC107;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #0D47A1;
+            margin-top: 20px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #1976D2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #1565C0;
+        }
+        .entity {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .attribute {
+            margin-left: 20px;
+            padding: 5px 0;
+        }
+        .attribute-name {
+            font-weight: bold;
+            color: #0D47A1;
+        }
+        .attribute-type {
+            color: #666;
+            font-style: italic;
+        }
+        .attribute-desc {
+            margin-left: 10px;
+        }
+        .relationship {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border-left: 4px solid #1976D2;
+            border-radius: 4px;
+        }
+        .diagram {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Modelagem de Dados - EscolApp</h1>
+        </header>
+
+        <main>
+            <h2>Introdução</h2>
+            <p>Este documento apresenta a modelagem de dados do EscolApp, um sistema simplificado de gestão escolar para dispositivos móveis, desenvolvido para atender às necessidades da Escola Municipal Professor Paulo Freire.</p>
+            
+            <p>A modelagem foi projetada considerando o funcionamento offline do aplicativo, utilizando SQLite como banco de dados local, com capacidade de sincronização quando houver conexão com a internet.</p>
+            
+            <h2>Modelo Entidade-Relacionamento</h2>
+            <p>O modelo de dados do EscolApp é composto pelas seguintes entidades principais e seus relacionamentos:</p>
+            
+            <div class="entity">
+                <h3>Usuário</h3>
+                <p>Armazena informações sobre todos os usuários do sistema.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_usuario</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único do usuário (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">nome</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Nome completo do usuário</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">login</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Nome de usuário para login</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">senha</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Senha criptografada</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">email</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Endereço de e-mail</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">telefone</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Número de telefone</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">tipo_perfil</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Tipo de perfil (1-Administrador, 2-Professor, 3-Aluno, 4-Responsável)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_cadastro</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data de cadastro no sistema</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">ultimo_acesso</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data e hora do último acesso</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">ativo</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status do usuário (0-Inativo, 1-Ativo)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Aluno</h3>
+                <p>Armazena informações específicas dos alunos.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_aluno</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único do aluno (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_usuario</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao usuário (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">matricula</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Número de matrícula do aluno</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_nascimento</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data de nascimento</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_turma</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência à turma (chave estrangeira)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Professor</h3>
+                <p>Armazena informações específicas dos professores.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_professor</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único do professor (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_usuario</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao usuário (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">formacao</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Formação acadêmica</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">area_atuacao</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Área de atuação/especialidade</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Responsável</h3>
+                <p>Armazena informações específicas dos responsáveis pelos alunos.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_responsavel</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único do responsável (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_usuario</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao usuário (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">parentesco</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Relação de parentesco com o aluno</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Aluno_Responsavel</h3>
+                <p>Tabela de relacionamento entre alunos e responsáveis (muitos para muitos).</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_aluno</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao aluno (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_responsavel</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao responsável (chave estrangeira)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Turma</h3>
+                <p>Armazena informações sobre as turmas da escola.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_turma</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único da turma (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">nome</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Nome/identificação da turma</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">ano_letivo</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Ano letivo</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">serie</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Série/ano escolar</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">turno</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Turno (Manhã, Tarde, Noite)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Disciplina</h3>
+                <p>Armazena informações sobre as disciplinas oferecidas.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_disciplina</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único da disciplina (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">nome</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Nome da disciplina</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">carga_horaria</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Carga horária total</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Professor_Disciplina_Turma</h3>
+                <p>Relacionamento entre professores, disciplinas e turmas.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_professor</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao professor (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_disciplina</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência à disciplina (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_turma</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência à turma (chave estrangeira)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Nota</h3>
+                <p>Armazena as notas dos alunos.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_nota</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único da nota (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_aluno</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao aluno (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_disciplina</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência à disciplina (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">bimestre</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Bimestre (1, 2, 3 ou 4)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">valor</span> 
+                    <span class="attribute-type">(REAL)</span>: 
+                    <span class="attribute-desc">Valor da nota (0 a 10)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_registro</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data de registro da nota</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_professor</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Professor que registrou a nota (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">sincronizado</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status de sincronização (0-Não, 1-Sim)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Frequencia</h3>
+                <p>Armazena os registros de frequência dos alunos.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_frequencia</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único do registro (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_aluno</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao aluno (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_disciplina</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência à disciplina (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data da aula</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">presente</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status de presença (0-Ausente, 1-Presente, 2-Justificado)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">justificativa</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Justificativa para ausência (se aplicável)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_professor</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Professor que registrou a frequência (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">sincronizado</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status de sincronização (0-Não, 1-Sim)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Comunicado</h3>
+                <p>Armazena os comunicados enviados no sistema.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_comunicado</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único do comunicado (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">titulo</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Título do comunicado</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">conteudo</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Conteúdo do comunicado</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_envio</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data e hora de envio</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_remetente</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Usuário que enviou o comunicado (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">tipo</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Tipo de comunicado (1-Geral, 2-Turma, 3-Individual)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">sincronizado</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status de sincronização (0-Não, 1-Sim)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Destinatario_Comunicado</h3>
+                <p>Relacionamento entre comunicados e seus destinatários.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_comunicado</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao comunicado (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_destinatario</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao usuário destinatário (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">lido</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status de leitura (0-Não lido, 1-Lido)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_leitura</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data e hora da leitura (se aplicável)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Evento_Calendario</h3>
+                <p>Armazena eventos do calendário escolar.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_evento</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único do evento (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">titulo</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Título do evento</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">descricao</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Descrição detalhada do evento</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_inicio</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data e hora de início</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_fim</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data e hora de término</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">tipo</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Tipo de evento (1-Feriado, 2-Reunião, 3-Prova, 4-Atividade)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_criador</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Usuário que criou o evento (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_turma</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Turma relacionada (se aplicável, chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">sincronizado</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status de sincronização (0-Não, 1-Sim)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Ocorrencia</h3>
+                <p>Armazena ocorrências disciplinares dos alunos.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_ocorrencia</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único da ocorrência (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_aluno</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Referência ao aluno (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_hora</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data e hora da ocorrência</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">descricao</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Descrição detalhada da ocorrência</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">medidas_tomadas</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Medidas tomadas em resposta à ocorrência</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_registrador</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Usuário que registrou a ocorrência (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">notificado_responsavel</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status de notificação ao responsável (0-Não, 1-Sim)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">sincronizado</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status de sincronização (0-Não, 1-Sim)</span>
+                </div>
+            </div>
+            
+            <div class="entity">
+                <h3>Sincronizacao</h3>
+                <p>Registra histórico de sincronizações realizadas.</p>
+                
+                <div class="attribute">
+                    <span class="attribute-name">id_sincronizacao</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Identificador único da sincronização (chave primária)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">id_usuario</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Usuário que realizou a sincronização (chave estrangeira)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">data_hora</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Data e hora da sincronização</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">status</span> 
+                    <span class="attribute-type">(INTEGER)</span>: 
+                    <span class="attribute-desc">Status da sincronização (0-Falha, 1-Sucesso)</span>
+                </div>
+                <div class="attribute">
+                    <span class="attribute-name">detalhes</span> 
+                    <span class="attribute-type">(TEXT)</span>: 
+                    <span class="attribute-desc">Detalhes sobre a sincronização (itens sincronizados, erros)</span>
+                </div>
+            </div>
+            
+            <h2>Relacionamentos Principais</h2>
+            
+            <div class="relationship">
+                <p><strong>Usuário → Aluno/Professor/Responsável:</strong> Relacionamento 1:1. Cada usuário pode ser um aluno, professor ou responsável, dependendo do tipo de perfil.</p>
+            </div>
+            
+            <div class="relationship">
+                <p><strong>Aluno ↔ Responsável:</strong> Relacionamento N:M. Um aluno pode ter vários responsáveis, e um responsável pode ser responsável por vários alunos.</p>
+            </div>
+            
+            <div class="relationship">
+                <p><strong>Professor ↔ Disciplina ↔ Turma:</strong> Relacionamento N:M:M. Um professor pode lecionar várias disciplinas em várias turmas.</p>
+            </div>
+            
+            <div class="relationship">
+                <p><strong>Aluno → Turma:</strong> Relacionamento N:1. Vários alunos pertencem a uma turma.</p>
+            </div>
+            
+            <div class="relationship">
+                <p><strong>Aluno ↔ Nota:</strong> Relacionamento 1:N. Um aluno pode ter várias notas em diferentes disciplinas.</p>
+            </div>
+            
+            <div class="relationship">
+                <p><strong>Aluno ↔ Frequência:</strong> Relacionamento 1:N. Um aluno pode ter vários registros de frequência.</p>
+            </div>
+            
+            <div class="relationship">
+                <p><strong>Comunicado ↔ Usuário:</strong> Relacionamento N:M. Um comunicado pode ter vários destinatários, e um usuário pode receber vários comunicados.</p>
+            </div>
+            
+            <h2>Considerações sobre Sincronização</h2>
+            <p>Para suportar o funcionamento offline do aplicativo, o modelo de dados inclui campos de controle de sincronização em todas as entidades que podem ser modificadas localmente. Esses campos permitem identificar quais registros precisam ser sincronizados quando houver conexão com a internet.</p>
+            
+            <p>A tabela de Sincronização mantém um histórico de todas as sincronizações realizadas, facilitando a resolução de conflitos e o rastreamento de problemas.</p>
+
+            <a href="../index.html" class="back-link">Voltar para a página inicial</a>
+        </main>
+
+        <div class="footer">
+            <p>EscolApp - Sistema Simplificado de Gestão Escolar para Dispositivos Móveis</p>
+            <p>Projeto Multidisciplinar Final - Análise e Desenvolvimento de Sistemas</p>
+        </div>
+    </div>
+</body>
+</html>

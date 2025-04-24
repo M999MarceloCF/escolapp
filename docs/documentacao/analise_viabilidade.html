@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Viabilidade - EscolApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        header {
+            background-color: #1976D2;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px 5px 0 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        h2 {
+            color: #1976D2;
+            border-bottom: 2px solid #FFC107;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #0D47A1;
+            margin-top: 20px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #1976D2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #1565C0;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #1976D2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #1976D2;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Análise de Viabilidade - EscolApp</h1>
+        </header>
+
+        <main>
+            <h2>Introdução</h2>
+            <p>Este documento apresenta a análise de viabilidade do EscolApp, um sistema simplificado de gestão escolar para dispositivos móveis, desenvolvido para atender às necessidades da Escola Municipal Professor Paulo Freire.</p>
+            
+            <div class="section">
+                <h2>Viabilidade Técnica</h2>
+                <p>A análise de viabilidade técnica avalia se o projeto é tecnicamente possível, considerando as tecnologias disponíveis e as restrições do ambiente.</p>
+                
+                <h3>Tecnologias Propostas</h3>
+                <ul>
+                    <li><strong>Linguagem de Programação:</strong> Python</li>
+                    <li><strong>Framework Mobile:</strong> Kivy/KivyMD</li>
+                    <li><strong>Banco de Dados Local:</strong> SQLite</li>
+                    <li><strong>Padrão Arquitetural:</strong> MVC (Model-View-Controller)</li>
+                </ul>
+                
+                <h3>Justificativa da Escolha Tecnológica</h3>
+                <ul>
+                    <li><strong>Python:</strong> Linguagem de fácil aprendizado e manutenção, com ampla comunidade e bibliotecas.</li>
+                    <li><strong>Kivy/KivyMD:</strong> Framework multiplataforma que permite desenvolvimento para Android com baixo consumo de recursos.</li>
+                    <li><strong>SQLite:</strong> Banco de dados leve, que não requer servidor, ideal para aplicações móveis com funcionamento offline.</li>
+                    <li><strong>MVC:</strong> Padrão que facilita a manutenção e evolução do código, separando a lógica de negócio da interface.</li>
+                </ul>
+                
+                <h3>Requisitos de Hardware</h3>
+                <p>O aplicativo foi projetado para funcionar em dispositivos com configurações modestas:</p>
+                <ul>
+                    <li>Android 6.0 ou superior</li>
+                    <li>1GB de RAM (mínimo)</li>
+                    <li>100MB de espaço de armazenamento disponível</li>
+                    <li>Processador de 1.2GHz (mínimo)</li>
+                </ul>
+                
+                <h3>Conclusão da Viabilidade Técnica</h3>
+                <p>O projeto é tecnicamente viável, utilizando tecnologias estabelecidas e de código aberto, com requisitos de hardware acessíveis mesmo para dispositivos mais antigos ou de entrada.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Viabilidade Econômica</h2>
+                <p>A análise de viabilidade econômica avalia os custos e benefícios do projeto.</p>
+                
+                <h3>Custos Estimados</h3>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Custo Estimado</th>
+                    </tr>
+                    <tr>
+                        <td>Desenvolvimento do Software</td>
+                        <td>Baixo (utilizando tecnologias open source)</td>
+                    </tr>
+                    <tr>
+                        <td>Infraestrutura de Servidor</td>
+                        <td>Mínimo (sincronização ocasional)</td>
+                    </tr>
+                    <tr>
+                        <td>Manutenção</td>
+                        <td>Baixo (código simples e bem documentado)</td>
+                    </tr>
+                    <tr>
+                        <td>Treinamento</td>
+                        <td>Médio (interface intuitiva reduz necessidade)</td>
+                    </tr>
+                </table>
+                
+                <h3>Benefícios Esperados</h3>
+                <ul>
+                    <li>Redução do tempo gasto em tarefas administrativas</li>
+                    <li>Melhoria na comunicação entre escola e famílias</li>
+                    <li>Redução de custos com papel e impressão</li>
+                    <li>Acesso mais rápido e fácil às informações escolares</li>
+                    <li>Maior engajamento dos responsáveis no acompanhamento escolar</li>
+                </ul>
+                
+                <h3>Conclusão da Viabilidade Econômica</h3>
+                <p>O projeto apresenta boa viabilidade econômica, com custos reduzidos devido ao uso de tecnologias open source e benefícios significativos para a gestão escolar e comunicação.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Viabilidade Operacional</h2>
+                <p>A análise de viabilidade operacional avalia se o sistema será utilizado efetivamente após sua implementação.</p>
+                
+                <h3>Fatores Favoráveis</h3>
+                <ul>
+                    <li>Interface simples e intuitiva, adequada para usuários com diferentes níveis de familiaridade com tecnologia</li>
+                    <li>Funcionamento offline, permitindo uso mesmo com conexão limitada</li>
+                    <li>Baixo consumo de recursos, compatível com dispositivos mais antigos</li>
+                    <li>Atende a necessidades reais e urgentes da escola</li>
+                </ul>
+                
+                <h3>Desafios Operacionais</h3>
+                <ul>
+                    <li>Necessidade de treinamento inicial para professores e funcionários</li>
+                    <li>Possível resistência à mudança por parte de alguns usuários</li>
+                    <li>Necessidade de suporte técnico para resolução de problemas</li>
+                </ul>
+                
+                <h3>Estratégias para Superar Desafios</h3>
+                <ul>
+                    <li>Realizar treinamentos práticos e fornecer material de apoio</li>
+                    <li>Implementar o sistema gradualmente, começando com funcionalidades básicas</li>
+                    <li>Designar "multiplicadores" entre os usuários para auxiliar colegas</li>
+                    <li>Fornecer canal de suporte técnico acessível</li>
+                </ul>
+                
+                <h3>Conclusão da Viabilidade Operacional</h3>
+                <p>O projeto apresenta boa viabilidade operacional, com interface intuitiva e funcionamento adaptado à realidade da escola pública. Os desafios identificados podem ser superados com estratégias adequadas de implementação e treinamento.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Conclusão Geral</h2>
+                <p>A análise de viabilidade indica que o EscolApp é um projeto viável do ponto de vista técnico, econômico e operacional. O sistema proposto atende às necessidades da Escola Municipal Professor Paulo Freire, utilizando tecnologias acessíveis e adequadas ao contexto de uma escola pública com recursos limitados.</p>
+                
+                <p>Recomenda-se a continuidade do projeto, com atenção especial ao treinamento dos usuários e à implementação gradual das funcionalidades.</p>
+            </div>
+
+            <a href="../index.html" class="back-link">Voltar para a página inicial</a>
+        </main>
+
+        <div class="footer">
+            <p>EscolApp - Sistema Simplificado de Gestão Escolar para Dispositivos Móveis</p>
+            <p>Projeto Multidisciplinar Final - Análise e Desenvolvimento de Sistemas</p>
+        </div>
+    </div>
+</body>
+</html>
